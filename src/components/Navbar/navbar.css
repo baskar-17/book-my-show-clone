@@ -1,0 +1,24 @@
+.navbar-container {
+  background-color: #333545;
+  padding: 10px 16px 8px;
+  color: #ffffff;
+}
+
+.navbar-heading {
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.navbar-location {
+  gap: 4px;
+}
+
+.Primary-btn {
+  padding: 12px 10px;
+  background-color: #f84464;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 14px;
+}
