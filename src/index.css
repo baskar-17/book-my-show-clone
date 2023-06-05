@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.slick-prev {
+  left: 0% !important;
+  z-index: 1;
+}
+
+.slick-next {
+  right: 0% !important;
+  z-index: 1;
+}
+
+.slick-next:before {
+  content: "\203A" !important;
+  height: 24px;
+  width: 24px;
+}

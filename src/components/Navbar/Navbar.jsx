@@ -61,17 +61,17 @@ function Navbar() {
   const Navlg = () => {
     return (
       <>
-        <div className="navbar-container w-full flex flex-col ">
+        <div className="navbar-container w-full flex flex-col">
           <div className="flex items-center px-8 py-2 justify-between">
             <div className="w-9/12  flex items-center gap-2">
-              <div className="w-44">
+              <div className="w-36">
                 <img
                   src={Logo}
                   alt="book my show logo"
                   className="w-100 h-100"
                 />
               </div>
-              <div className="bg-white p-2 rounded flex gap-1 items-center w-full my-2 ">
+              <div className="bg-white p-2 rounded flex gap-1 items-center w-6/12 my-2 ">
                 <FiSearch size={20} color="gray" />
                 <input
                   type="search"
@@ -91,7 +91,6 @@ function Navbar() {
               </button>
             </div>
           </div>
-
           <div className="px-8 py-2 flex justify-between items-center navbar-large-listitems">
             <div className="navbar-tablet-listitems">
               <ul className="text-md flex gap-5">
