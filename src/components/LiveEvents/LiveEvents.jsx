@@ -1,5 +1,5 @@
 import React from "react";
-import SmallSlider from "react-slick";
+import Slider from "react-slick";
 import { NextArrow, PrevArrow } from "../HeroCarousel/Arrows";
 
 function LiveEvents(props) {
@@ -23,12 +23,35 @@ function LiveEvents(props) {
     initialSlide: 0,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 1008,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 800,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
   const LiveEventCards = (props) => {
     return (
       <>
-        <div className="w-full h-30 px-4">
+        <div className="w-full h-30 pr-6">
           <img
             src={props.src}
             alt="Live events cards"
@@ -41,11 +64,13 @@ function LiveEvents(props) {
 
   return (
     <>
-      <SmallSlider {...settings}>
+      <h1 className="text-2xl font-bold mt-4">{props.heading}</h1>
+      <p className="text-sm mb-4">{props.subheading}</p>
+      <Slider {...settings}>
         {LiveEventImage.map((image) => (
           <LiveEventCards src={image} />
         ))}
-      </SmallSlider>
+      </Slider>
     </>
   );
 }

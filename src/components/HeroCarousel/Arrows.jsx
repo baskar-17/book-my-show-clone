@@ -40,3 +40,23 @@ export const PrevArrow = (props) => {
     </>
   );
 };
+
+export const SingleNextArrow = (props) => {
+  return (
+    <>
+      <div
+        className={props.className}
+        style={{
+          ...props.style,
+          backgroundColor: "#ababab",
+          borderRadius: "99px",
+          padding: "20px",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+        onClick={props.onClick}
+      />
+    </>
+  );
+};

@@ -1,5 +1,6 @@
 import React from "react";
 import "./navbar.css";
+import { Link } from "react-router-dom";
 
 import {
   FiChevronRight,
@@ -13,7 +14,7 @@ function Navbar() {
   const Navsm = () => {
     return (
       <>
-        <div className="navbar-container w-full px-4 py-2 flex items-center justify-between">
+        <div className="bg-slate-800 text-white w-full px-4 py-2 flex items-center justify-between">
           <div>
             <h3 className="navbar-heading">It All Starts Here!</h3>
             <span className="flex text-xs items-center gap-1">
@@ -32,7 +33,7 @@ function Navbar() {
   const Navmd = () => {
     return (
       <>
-        <div className="navbar-container w-full flex flex-col px-6 py-2">
+        <div className="bg-slate-800 text-white w-full flex flex-col px-6 py-2">
           <div className="bg-white p-2 rounded flex gap-1 items-center w-full my-2">
             <FiSearch size={20} color="gray" />
             <input
@@ -42,7 +43,7 @@ function Navbar() {
             />
           </div>
 
-          <div className="navbar-tablet-listitems py-2">
+          <div className=".bg-gray-900 py-2">
             <ul className="text-sm flex gap-5">
               <li>Movies</li>
               <li>Stream</li>
@@ -61,15 +62,17 @@ function Navbar() {
   const Navlg = () => {
     return (
       <>
-        <div className="navbar-container w-full flex flex-col">
+        <div className="bg-slate-800 text-white w-full flex flex-col">
           <div className="flex items-center px-8 py-2 justify-between">
             <div className="w-9/12  flex items-center gap-2">
               <div className="w-36">
-                <img
-                  src={Logo}
-                  alt="book my show logo"
-                  className="w-100 h-100"
-                />
+                <Link to="/">
+                  <img
+                    src={Logo}
+                    alt="book my show logo"
+                    className="w-100 h-100"
+                  />
+                </Link>
               </div>
               <div className="bg-white p-2 rounded flex gap-1 items-center w-6/12 my-2 ">
                 <FiSearch size={20} color="gray" />
@@ -91,7 +94,7 @@ function Navbar() {
               </button>
             </div>
           </div>
-          <div className="px-8 py-2 flex justify-between items-center navbar-large-listitems">
+          <div className="px-8 py-2 flex justify-between items-center bg-gray-900">
             <div className="navbar-tablet-listitems">
               <ul className="text-md flex gap-5">
                 <li>Movies</li>
