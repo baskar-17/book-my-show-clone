@@ -6,7 +6,7 @@ import TempPosters from "../Config/TempPosters";
 function HomePage() {
   return (
     <div>
-      <div className="container mx-auto max-w-screen-2xl px-16 my-10">
+      <div className="container mx-auto max-w-screen-xl p-4">
         <PosterSlider
           from={TempPosters}
           heading={"Recommended Movies"}
@@ -18,7 +18,7 @@ function HomePage() {
         />
       </div>
 
-      <div className="container mx-auto max-w-screen-2xl px-16 my-10">
+      <div className="container mx-auto max-w-screen-xl p-4">
         <img
           src="https://assets-in.bmscdn.com/discovery-catalog/collections/tr:w-1440,h-120:q-80/stream-leadin-web-collection-202210241242.png"
           alt="break banner"
@@ -26,7 +26,7 @@ function HomePage() {
         />
       </div>
 
-      <div className="container mx-auto max-w-screen-2xl px-16 my-10">
+      <div className="container mx-auto max-w-screen-xl p-4">
         <LiveEvents
           from={TempPosters}
           heading={"The Best Of Live Events"}
@@ -35,11 +35,11 @@ function HomePage() {
       </div>
 
       <div className="bg-slate-800 py-4">
-        <div className="container mx-auto max-w-screen-2xl my-10 px-16 text-white">
+        <div className="container mx-auto max-w-screen-xl p-4 text-white">
           <img
             src="https://assets-in.bmscdn.com/discovery-catalog/collections/tr:w-1440,h-120:q-80/premiere-banner-web-collection-202208191200.png"
             alt="Premier Banner"
-            className="w-3/4"
+            className="w-full"
           />
           <PosterSlider
             from={TempPosters}
@@ -51,7 +51,7 @@ function HomePage() {
         </div>
       </div>
 
-      <div className="container mx-auto max-w-screen-2xl px-16 my-10">
+      <div className="container mx-auto max-w-screen-xl p-4">
         <PosterSlider
           from={TempPosters}
           heading={"Events happening near you"}
@@ -63,7 +63,7 @@ function HomePage() {
         />
       </div>
 
-      <div className="container mx-auto max-w-screen-2xl px-16 my-10">
+      <div className="container mx-auto max-w-screen-xl p-4">
         <PosterSlider
           from={TempPosters}
           heading={"Online Streaming Events"}
