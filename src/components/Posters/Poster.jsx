@@ -25,22 +25,22 @@ function Poster(props) {
           <div className="w-full flex flex-col rounded-lg truncate divide-y divide-slate-800">
             <div className="h-80 w-full object-cover">
               <img
-                src={props.src}
-                alt={props.title}
+                src={`https://image.tmdb.org/t/p/original${props.poster_path}`}
+                alt={props.original_title}
                 className="w-full h-full "
               />
             </div>
             <div className="">
               <p className="flex items-center gap-4 p-2 bg-black text-white">
-                {props.like > props.vote ? (
+                {props.popularity / 100 > props.vote_average ? (
                   <>
                     <AiFillHeart color="red" />
-                    {formatNumber(props.like)} Likes
+                    {formatNumber(props.popularity)} Likes
                   </>
                 ) : (
                   <>
                     <AiFillStar color="orange" />
-                    {(props.vote / 100).toFixed(2)} / 10 Votes
+                    {props.vote_average} / 10 Votes
                   </>
                 )}
               </p>
@@ -51,13 +51,13 @@ function Poster(props) {
               className={`text-lg font-bold 
             ${props.isDark ? "text-white" : "text-gray-800"}`}
             >
-              {props.title}
+              {props.original_title}
             </h3>
             <p
-              className={`text-sm 
+              className={`text-ellipsis h-8 text-sm 
             ${props.isDark ? "text-white" : "text-gray-800"}`}
             >
-              {props.subtitle}
+              Released on: {props.release_date}
             </p>
           </div>
         </div>

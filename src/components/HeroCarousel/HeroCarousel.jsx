@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
+import axios from "axios";
 
 import { NextArrow, PrevArrow } from "./Arrows";
 
@@ -7,6 +8,26 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 function HeroCarousel() {
+  const [images, setImages] = useState([]);
+
+  useEffect(() => {
+    const requestNowPlayingMovies = async () => {
+      try {
+        const getImages = await axios.get("/movie/now_playing", {
+          params: {
+            api_key: "a2509a5ce6a680b1529282d3d4ddb0e4",
+          },
+        });
+        setImages(getImages.data.results);
+        console.log(getImages);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    requestNowPlayingMovies();
+  }, []);
+
   const settingsLg = {
     arrows: true,
     centerMode: true,
@@ -32,20 +53,14 @@ function HeroCarousel() {
     prevArrow: <PrevArrow />,
   };
 
-  const images = [
-    "https://in.bmscdn.com/webin/static/offers/tubelight/blockbuster-week-banner3.jpg",
-    "https://in.bmscdn.com/offers/tncbanner/get-rs150-off-on-movie-tickets-bms150.jpg?08092018221632",
-    "https://in.bmscdn.com/webin/best-of-2018/best-of-2018-banner.jpg",
-  ];
-
   return (
     <div className="bg-slate-100">
       <div className="lg:hidden">
         <Slider {...settings}>
           {images.map((image) => (
-            <div className="w-full h-44 md:h-80">
+            <div className="w-full h-44 md:h-80 object-cover">
               <img
-                src={image}
+                src={`https://image.tmdb.org/t/p/original${image.backdrop_path}`}
                 alt="Book my show Hero Slider"
                 className="w-full h-full"
               />
@@ -59,7 +74,7 @@ function HeroCarousel() {
           {images.map((image) => (
             <div className="w-full h-80 px-2 py-2">
               <img
-                src={image}
+                src={`https://image.tmdb.org/t/p/original${image.backdrop_path}`}
                 alt="Book my show Hero Slider"
                 className="w-full h-full rounded-md"
               />

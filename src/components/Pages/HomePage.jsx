@@ -1,14 +1,87 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import LiveEvents from "../LiveEvents/LiveEvents";
 import PosterSlider from "../Posters/PosterSlider";
-import TempPosters from "../Config/TempPosters";
 
 function HomePage() {
+  const [nowPlaying, setNowPlaying] = useState([]);
+  const [popularMovies, setPopularMovies] = useState([]);
+  const [upcomingMovies, setUpcomingMovies] = useState([]);
+  const [topRatedMovies, setTopRatedMovies] = useState([]);
+
+  useEffect(() => {
+    const requestPopularMovies = async () => {
+      try {
+        const getPopularMovies = await axios.get("/movie/now_playing", {
+          params: {
+            api_key: "a2509a5ce6a680b1529282d3d4ddb0e4",
+          },
+        });
+        setNowPlaying(getPopularMovies.data.results);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    requestPopularMovies();
+  }, []);
+
+  useEffect(() => {
+    const requestPopularMovies = async () => {
+      try {
+        const getPopularMovies = await axios.get("/movie/popular", {
+          params: {
+            api_key: "a2509a5ce6a680b1529282d3d4ddb0e4",
+          },
+        });
+        setPopularMovies(getPopularMovies.data.results);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    requestPopularMovies();
+  }, []);
+
+  useEffect(() => {
+    const requestUpcomingMovies = async () => {
+      try {
+        const getUpcomingMovies = await axios.get("/movie/upcoming", {
+          params: {
+            api_key: "a2509a5ce6a680b1529282d3d4ddb0e4",
+          },
+        });
+        setUpcomingMovies(getUpcomingMovies.data.results);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    requestUpcomingMovies();
+  }, []);
+
+  useEffect(() => {
+    const requestTopRatedMovies = async () => {
+      try {
+        const getTopRatedMovies = await axios.get("/movie/top_rated", {
+          params: {
+            api_key: "a2509a5ce6a680b1529282d3d4ddb0e4",
+          },
+        });
+        setTopRatedMovies(getTopRatedMovies.data.results);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    requestTopRatedMovies();
+  }, []);
+
   return (
     <div>
       <div className="container mx-auto max-w-screen-xl p-4">
         <PosterSlider
-          from={TempPosters}
+          from={nowPlaying}
           heading={"Recommended Movies"}
           subheading={
             "Watch the recommended movies where more poeples are going"
@@ -28,7 +101,7 @@ function HomePage() {
 
       <div className="container mx-auto max-w-screen-xl p-4">
         <LiveEvents
-          from={TempPosters}
+          from={popularMovies}
           heading={"The Best Of Live Events"}
           subheading={"Live events for all your entertainment needs"}
         />
@@ -42,9 +115,11 @@ function HomePage() {
             className="w-full"
           />
           <PosterSlider
-            from={TempPosters}
-            heading={"Premier Movies"}
-            subheading={"Brand new releases every friday"}
+            from={popularMovies}
+            heading={popularMovies.length > 0 ? "Premieres" : ""}
+            subheading={
+              popularMovies.length > 0 ? "New Releases every Friday" : ""
+            }
             isDark={true}
             date={false}
           />
@@ -53,7 +128,17 @@ function HomePage() {
 
       <div className="container mx-auto max-w-screen-xl p-4">
         <PosterSlider
-          from={TempPosters}
+          from={upcomingMovies}
+          heading={"Upcoming Movies"}
+          subheading={"Watch the upcoming movies where more poeples are going"}
+          isDark={false}
+          date={false}
+        />
+      </div>
+
+      <div className="container mx-auto max-w-screen-xl p-4">
+        <PosterSlider
+          from={popularMovies}
           heading={"Events happening near you"}
           subheading={
             "Some subheading whill go here and this is the place holder"
@@ -65,7 +150,7 @@ function HomePage() {
 
       <div className="container mx-auto max-w-screen-xl p-4">
         <PosterSlider
-          from={TempPosters}
+          from={popularMovies}
           heading={"Online Streaming Events"}
           subheading={
             "Some subheading whill go here and this is the place holder"

@@ -1,5 +1,5 @@
 import React from "react";
-import PosterDetails from "../Config/TempPosters";
+// import PosterDetails from "../Config/TempPosters";
 
 function MovieHeader() {
   return (
@@ -32,7 +32,8 @@ function MovieHeader() {
             className="h-full w-full rounded-xl"
           />
         </div>
-        <div>
+
+        <div className="absolute z-30 h-80 left-16 top-10 ">
           <h2>Por Thozhil</h2>
         </div>
 
