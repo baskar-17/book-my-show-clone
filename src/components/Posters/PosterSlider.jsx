@@ -6,12 +6,21 @@ import CaroselSetting from "../Config/CarouselSetting";
 
 function PosterSlider(props) {
   return (
-    <div className="container mx-auto max-w-screen-2xl my-8">
-      <h1 className="text-2xl font-bold mt-4">{props.heading}</h1>
-      <p className="text-sm mb-4">{props.subheading}</p>
+    <div className="container mx-auto max-w-screen-2xl">
+      <h1 className="sm:text-md md:text-lg lg:text-2xl font-bold mt-4">
+        {props.heading}
+      </h1>
+      <p className="sm:text-xs text-sm mb-4">{props.subheading}</p>
       <Slider {...CaroselSetting}>
         {props.from.map((item) => {
-          return <Poster {...item} isDark={props.isDark} />;
+          return (
+            <Poster
+              key={item.id}
+              {...item}
+              movieData={props.from}
+              isDark={props.isDark}
+            />
+          );
         })}
       </Slider>
       <div />

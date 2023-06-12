@@ -20,10 +20,14 @@ function Poster(props) {
 
   return (
     <>
-      <Link to={`/movie/${props.title.replace(/\s+/g, "-")}`}>
-        <div className="flex flex-col items-start gap-2 pr-8">
+      <Link
+        to={{
+          pathname: `/movie/${props.id}/${props.title.replace(/\s+/g, "-")}`,
+        }}
+      >
+        <div className="flex flex-col items-start gap-2 pr-4 ">
           <div className="w-full flex flex-col rounded-lg truncate divide-y divide-slate-800">
-            <div className="h-80 w-full object-cover">
+            <div className="h-full w-full object-cover">
               <img
                 src={`https://image.tmdb.org/t/p/original${props.poster_path}`}
                 alt={props.original_title}
@@ -48,7 +52,7 @@ function Poster(props) {
           </div>
           <div>
             <h3
-              className={`text-lg font-bold 
+              className={`sm:text-sm md:text-md lg:text-lg font-semibold 
             ${props.isDark ? "text-white" : "text-gray-800"}`}
             >
               {props.original_title}

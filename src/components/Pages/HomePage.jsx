@@ -150,7 +150,7 @@ function HomePage() {
 
       <div className="container mx-auto max-w-screen-xl p-4">
         <PosterSlider
-          from={popularMovies}
+          from={topRatedMovies}
           heading={"Online Streaming Events"}
           subheading={
             "Some subheading whill go here and this is the place holder"

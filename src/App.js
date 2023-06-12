@@ -21,7 +21,7 @@ function App() {
     <>
       <DefaultHOC path="/" exact={true} component={HomePage} />
       <DefaultHOC path="/plays" exact={true} component={PlaysPage} />
-      <MovieHOC path="/movie/:title" exact={true} component={MoviePage} />
+      <MovieHOC path="/movie/:id/:title" exact={true} component={MoviePage} />
     </>
   );
 }
