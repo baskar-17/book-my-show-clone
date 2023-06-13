@@ -12,12 +12,12 @@ function PosterSlider(props) {
       </h1>
       <p className="sm:text-xs text-sm mb-4">{props.subheading}</p>
       <Slider {...CaroselSetting}>
-        {props.from.map((item) => {
+        {props.from.map((item, index) => {
           return (
             <Poster
               key={item.id}
               {...item}
-              movieData={props.from}
+              movieData={index}
               isDark={props.isDark}
             />
           );

@@ -63,7 +63,7 @@ function Navbar() {
     return (
       <>
         <div className="bg-slate-800 text-white w-full flex flex-col">
-          <div className="flex items-center px-8 py-2 justify-between">
+          <div className="flex items-center px-8 py-2 w-4/6 m-auto justify-between">
             <div className="w-9/12  flex items-center gap-2">
               <div className="w-36">
                 <Link to="/">
@@ -94,25 +94,27 @@ function Navbar() {
               </button>
             </div>
           </div>
-          <div className="px-8 py-2 flex justify-between items-center bg-gray-900">
-            <div className="navbar-tablet-listitems">
-              <ul className="text-md flex gap-5">
-                <li>Movies</li>
-                <li>Stream</li>
-                <li>Events</li>
-                <li>Plays</li>
-                <li>Sports</li>
-                <li>Activities</li>
-                <li>Buzz</li>
-              </ul>
-            </div>
-            <div className="navbar-tablet-listitems">
-              <ul className="text-xs flex gap-5">
-                <li>ListYourShow</li>
-                <li>Corporates</li>
-                <li>Offers</li>
-                <li>Gift Cards</li>
-              </ul>
+          <div className="bg-gray-900">
+            <div className="px-8 py-2 flex justify-between  items-center  w-4/6 m-auto ">
+              <div className="navbar-tablet-listitems">
+                <ul className="text-md flex gap-5">
+                  <li>Movies</li>
+                  <li>Stream</li>
+                  <li>Events</li>
+                  <li>Plays</li>
+                  <li>Sports</li>
+                  <li>Activities</li>
+                  <li>Buzz</li>
+                </ul>
+              </div>
+              <div className="navbar-tablet-listitems">
+                <ul className="text-xs flex gap-5">
+                  <li>ListYourShow</li>
+                  <li>Corporates</li>
+                  <li>Offers</li>
+                  <li>Gift Cards</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
